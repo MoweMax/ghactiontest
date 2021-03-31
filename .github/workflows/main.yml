@@ -9,5 +9,4 @@ jobs:
     name: Deploy to dev
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        curl https://dev.minecraftbingo.mowemax.com/gitpull.php
+    - run: ${{ secrets.DEV_GITPULL_WEBHOOK }}
