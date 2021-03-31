@@ -5,20 +5,9 @@ on:
     branches:
       [main]
 jobs:
-
-  build:
-    name: Build
+  deploy:
+    name: Deploy to dev
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.DEV_IP }}
-        username: ${{ secrets.DEV_USERNAME }}
-        password: ${{ secrets.DEV_PASSWORD }}
-        port: 22
-        script: 
-          cd mowemax.com/dev.minecraftbingo/
-          pwd
-          ls
-          who
+    - run: |
+        curl https://dev.minecraftbingo.mowemax.com/gitpull.php
